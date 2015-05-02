@@ -4,7 +4,6 @@ from django.http import HttpResponse
 from django.http import JsonResponse
 from django.utils import timezone
 
-from hubs.models import Hub
 from hubs.models import HubNote
 
 
