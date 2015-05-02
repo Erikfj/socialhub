@@ -11,7 +11,7 @@ class Hub(models.Model):
         return u'%s (%s)' % (self.name, self.email)
 
 class HubNote(models.Model):
-	hub = models.ForeignKey(Hub, related_name='notes')
+	user = models.ForeignKey(User, related_name='notes')
 	note = models.TextField()
 	points = models.PositiveIntegerField(default=0)
 	created_by = models.ForeignKey(User, related_name="created_notes")
