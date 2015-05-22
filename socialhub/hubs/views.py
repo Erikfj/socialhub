@@ -43,6 +43,13 @@ def hub_details(request, hub_id):
 		'notes': notes}
 	return render(request, 'hubs/hub_details.html', context)
 
+@csrf_exempt
+def student_note_add_points(request, student_id, note_id):
+	note = StudentNote.objects.get(pk=note_id)
+	note.points = note.points + 1
+	note.save()
+	data = {'points_updated': note.points}
+	return JsonResponse(data)
 
 
 
