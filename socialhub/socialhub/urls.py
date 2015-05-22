@@ -5,8 +5,5 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', include('theme.urls')),
     url(r'^hubs/', include('hubs.urls')),
-
-
-
-    
+	url(r'^useraccounts/', include('useraccounts.urls')),
 )
