@@ -6,7 +6,7 @@
         <ul>
         {% for hub in hubs %}
             <li>
-                {{ hub.name }}
+                {{ hub.topic }}
                 <a href="{% url 'hub_details' hub.id %}">Details</a>
             </li>
         {% endfor %}
