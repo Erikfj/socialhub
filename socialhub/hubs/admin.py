@@ -1,3 +1,7 @@
 from django.contrib import admin
 
-# Register your models here.
+from hubs.models import Hub
+from hubs.models import HubNote
+
+admin.site.register(Hub)
+admin.site.register(HubNote)
