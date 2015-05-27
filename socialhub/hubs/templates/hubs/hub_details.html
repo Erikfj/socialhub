@@ -3,97 +3,27 @@
 {% block pagecontent %}
     
     <div class="row">
-    	<div class="col-sm-12">
+        <div class="col-sm-12">
     <h2>Hub World {{ hub.id }}</h2> 
     <table class="table">
-    	<thead>
-    		<tr>
-    			<th>Created by</th>
-    			<th>Email</th>
-    			<th>Topic</th>
-    		</tr>
-    	</thead>
-    	<tbody>
-    		<tr>
-    			<td>{{ hub.username }}</td>
-       			<td>{{ hub.email }}</td>
-        		<td>{{ hub.topic }}</td>
-        	</tr>
+        <thead>
+            <tr>
+                <th>Created by</th>
+                <th>Email</th>
+                <th>Topic</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ hub.username }}</td>
+                <td>{{ hub.email }}</td>
+                <td>{{ hub.topic }}</td>
+            </tr>
         </tbody>
     </table>
     </a>
-	</div>
-	</div>
-
-	{% if user.is_authenticated %}
-	<div class="row">
-		<div class="col-sm-12">
-			<h3>Notes by {{ hub.username }}</h3>
-
-			<table class="table">
-				{% for note in notes %}
-				<tr>
-					<td>{{ note.note }}</td> 
-					<td>{{ note.created_by }}</td>
-					<td id="id-points-for-note-{{ note.id }}">{{ note.points }}</td>
-					<td>
-						<a href="" class="add-points-link" data-noteid="{{ note.id }}">
-							+points
-						</a>
-					</td>
-				</tr>
-				{% endfor %}
-			</table>
-			<!-- Kopier for sidevisning av meldinger over 5 stykk. -->
-			<nav>
-                <ul class="pager">
-                    {% if notes.has_previous %}
-                    <li class="previous">
-                        <a href="?page={{ notes.previous_page_number }}">
-                            <span aria-hidden="true">&larr;</span> Forrige
-                        </a>
-                    </li>
-                    {% endif %}
-                    <li>
-                        <span class="current">
-                            Side {{ notes.number }} av {{ notes.paginator.num_pages }}
-                        </span>
-                    </li>
-                    {% if notes.has_next %}
-                        <li class="next">
-                            <a href="?page={{ notes.next_page_number }}">
-                                Neste <span aria-hidden="true">&rarr;</span>
-                            </a>
-                        </li>
-                    {% endif %}
-                </ul>
-            </nav>       
-		</div>
-	</div>
-
-	<div class="row" style="margin-bottom: 500px">
-		<div class="col-sm-12">
-			<h3>Add new note</h3>
-			<form class="form-horizontal" method="POST">
-				{% csrf_token %}
-				<div class="form-group">
-					<div class="col-sm-12">
-						<textarea class="form-control" rows="3" name="new_note"></textarea>
-					</div>
-				</div>
-				<div class="form-group">
-					<div class="col-sm-12">
-						<button type="submit" class="btn btn-default">Save new note</button>
-					</div>
-				</div>
-			</form>
-		</div>
-	</div>
-	{% endif %}
-
-    <input type="hidden" id="add_points_url" 
-    	value="/hubs/{{ hub.id }}/add_points">
-
+    </div>
+    </div>
 
 {% endblock %}
 
