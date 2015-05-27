@@ -6,6 +6,7 @@
         {% for hub in hubs %}
             <li>
                 {{ hub.topic }}
+                - submitted by: 
                 {{ hub.username }}
                 <a href="{% url 'hub_details' hub.id %}">Details</a>
             </li>
