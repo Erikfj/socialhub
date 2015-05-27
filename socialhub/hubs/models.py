@@ -6,7 +6,6 @@ class Hub(models.Model):
     username = models.ForeignKey(User, related_name='notes')
     topic = models.CharField(max_length=100)
     hubpoints = models.PositiveIntegerField(default=0)
-    created_by = models.ForeignKey(User, related_name="created_notes")
     created_datetime = models.DateTimeField()
 
     def __unicode__(self):
