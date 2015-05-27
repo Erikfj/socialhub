@@ -8,7 +8,7 @@ class Hub(models.Model):
     hubpoints = models.PositiveIntegerField(default=0)
 
     def __unicode__(self):
-        return u'%s' % self.note
+        return u'%s' % self.topic
 
     class Meta:
         ordering = ['-id']
