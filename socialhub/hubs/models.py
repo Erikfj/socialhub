@@ -3,9 +3,9 @@ from django.contrib.auth.models import User
 
 
 class Hub(models.Model):
-    topic = models.CharField(max_length=100)
-    email = models.TextField()
     username = models.ForeignKey(User, related_name='notes')
+    topic = models.CharField(max_length=100)
+    hubpoints = models.PositiveIntegerField(default=0)
 
     def __unicode__(self):
         return u'%s (%s)' % (self.topic, self.message)
