@@ -9,14 +9,17 @@
         <thead>
             <tr>
                 <th>Created by</th>
-                <th>Email</th>
+                <th><a href="" class="add-points-link" data-noteid="{{ hub.id }}">
+                        +HubPoints
+                    </a>
+                </th>
                 <th>Topic</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td>{{ hub.username }}</td>
-                <td>{{ hub.email }}</td>
+                <td>{{ hub.hubpoints }}</td>
                 <td>{{ hub.topic }}</td>
             </tr>
         </tbody>
@@ -24,6 +27,10 @@
     </a>
     </div>
     </div>
+
+    <input type="hidden" id="add_points_url" 
+        value="/hubs/{{ hub.id }}/add_points">
+
 
 {% endblock %}
 
