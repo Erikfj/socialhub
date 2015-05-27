@@ -3,11 +3,11 @@ $(document).ready(function(){
 
 	$(".add-points-link").click(function(event) {
 		event.preventDefault();
-		var note_id = $(this).data("noteid");
-		var points_element_id = "#id-points-for-note-" + note_id;
+		var hub_id = $(this).data("hubid");
+		var points_element_id = "#id-points-for-hub-" + hub_id;
 		$.ajax({
 			method: "POST",
-			url: $('#add_points_url').val() + "/" + note_id
+			url: $('#add_points_url').val() + "/" + hub_id
 		})
 		.done(function(data){
 		var points_updated = data['points_updated'];
