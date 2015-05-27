@@ -8,7 +8,7 @@ class Hub(models.Model):
     username = models.ForeignKey(User, related_name='notes')
 
     def __unicode__(self):
-        return u'%s (%s)' % (self.topic, self.email)
+        return u'%s (%s)' % (self.topic, self.message)
 
 
 class HubNote(models.Model):
