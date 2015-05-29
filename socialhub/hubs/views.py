@@ -50,7 +50,7 @@ def hub_details(request, hub_id):
 
 
 @csrf_exempt
-def hub_topic_add_points(request, username_id, topic_id):
+def username_topic_add_points(request, username_id, topic_id):
     topic = Hub.objects.get(pk=topic_id)
     topic.hubpoints = topic.hubpoints + 1
     topic.save()
