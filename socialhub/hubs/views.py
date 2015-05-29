@@ -16,7 +16,10 @@ def hub_listing(request):
         new_topic_text = request.POST.get('new_topic')
         new_topic = Hub()
         new_topic.topic = new_topic_text
+        new_topic.created_by = request.user
+        new_topic.created_datetime = timezone.now()
         new_topic.username = request.user
+        
         new_topic.save()
 
     hubs = Hub.objects.all()
