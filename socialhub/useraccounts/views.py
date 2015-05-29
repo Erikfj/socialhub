@@ -34,4 +34,18 @@ def user_register(request):
 		context['user_saved_successfully'] = True
 	return render(request, 'useraccounts/register.html', context)
 
-def user_account(request):
+def user_settings(request):
+	context = {}
+
+	return render(request, 'useraccounts/settings.html', context)
+
+
+
+
+
+
+
+
+
+
+
