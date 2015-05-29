@@ -3,10 +3,10 @@ from django.contrib.auth.models import User
 
 
 class Hub(models.Model):
-    username = models.ForeignKey(User, related_name='notes')
+    username = models.ForeignKey(User, related_name='topics')
     topic = models.CharField(max_length=100)
     hubpoints = models.PositiveIntegerField(default=0)
-    created_by = models.ForeignKey(User, related_name="created_notes")
+    created_by = models.ForeignKey(User, related_name="created_topics")
     created_datetime = models.DateTimeField()
 
     def __unicode__(self):
