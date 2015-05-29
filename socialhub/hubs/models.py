@@ -6,13 +6,13 @@ class Hub(models.Model):
     username = models.ForeignKey(User, related_name='notes')
     topic = models.CharField(max_length=100)
     hubpoints = models.PositiveIntegerField(default=0)
+    
 
     def __unicode__(self):
-        return u'%s' % self.topic
+        return u'%s, %s' % (self.topic, self.hubpoints)
 
     class Meta:
         ordering = ['-id']
-
 
 class HubNote(models.Model):
     user = models.ForeignKey(User, related_name='notes_2')
