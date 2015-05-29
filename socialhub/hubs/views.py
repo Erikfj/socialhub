@@ -19,7 +19,7 @@ def hub_listing(request):
         new_topic.created_by = request.user
         new_topic.created_datetime = timezone.now()
         new_topic.username = request.user
-        
+
         new_topic.save()
 
     hubs = Hub.objects.all()
@@ -50,9 +50,9 @@ def hub_details(request, hub_id):
 
 
 @csrf_exempt
-def student_note_add_points(request, student_id, note_id):
-    note = StudentNote.objects.get(pk=note_id)
-    note.points = note.points + 1
-    note.save()
-    data = {'points_updated': note.points}
+def user_topic_add_points(request, username_id, topic_id):
+    topic = UserTopic.objects.get(pk=topic_id)
+    topic.points = topic.points + 1
+    topic.save()
+    data = {'points_updated': topic.points}
     return JsonResponse(data)
