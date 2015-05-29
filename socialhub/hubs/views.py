@@ -11,7 +11,17 @@ from hubs.models import HubNote
 
 # Create your views here.
 def hub_listing(request):
+
+    if request.method == "POST":
+        new_topic_text = request.POST.get('new_topic')
+        new_topic = Hub()
+        new_topic.topic = new_topic_text
+        new_topic.username = request.user
+        new_topic.save()
+
     hubs = Hub.objects.all()
+    for hub in hubs: 
+    	print hub
     context = {'hubs': hubs}
     return render(request, 'hubs/hub_listing.html', context)
 
@@ -19,29 +29,20 @@ def hub_listing(request):
 def hub_details(request, hub_id):
     hub = Hub.objects.get(pk=hub_id)
 
-    if request.method == "POST":
-        new_note_text = request.POST.get('new_note')
-        new_note = HubNote()
-        new_note.note = new_note_text
-        new_note.hub = hub
-        new_note.created_by = request.user
-        new_note.created_datetime = timezone.now()
-        new_note.save()
-
-    # notes = hub.notes.all() Det kom en feil her da hub ikke har noe attributt notes. men note
-    notes = HubNote.objects.all()
+    # notes = hub.topics.all() Det kom en feil her da hub ikke har noe attributt notes. men note
+    topics = Hub.objects.all()
     page_number = request.GET.get('page')
-    pageinator = Paginator(notes, 5)
+    pageinator = Paginator(topics, 5)
     try:
-        notes = pageinator.page(page_number)
+        topics = pageinator.page(page_number)
     except PageNotAnInteger:
-        notes = pageinator.page(1)
+        topics = pageinator.page(1)
     except EmptyPage:
-        notes = pageinator.page(pageinator.num_pages)
+        topics = pageinator.page(pageinator.num_pages)
 
     context = {
         'hub': hub,
-        'notes': notes}
+        'topics': topics}
     return render(request, 'hubs/hub_details.html', context)
 
 
