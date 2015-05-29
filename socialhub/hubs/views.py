@@ -50,9 +50,9 @@ def hub_details(request, hub_id):
 
 
 @csrf_exempt
-def hub_topic_add_points(request, user_id, hub_id):
-    hub = HubTopic.objects.get(pk=hub_id)
-    hub.points = hub.points + 1
-    hub.save()
-    data = {'points_updated': hub.points}
+def hub_topic_add_points(request, username_id, topic_id):
+    topic = Hub.objects.get(pk=hubpoints_id)
+    topic.hubpoints = hub.hubpoints + 1
+    topic.save()
+    data = {'points_updated': hub.hubpoints}
     return JsonResponse(data)
