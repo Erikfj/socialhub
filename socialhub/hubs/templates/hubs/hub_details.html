@@ -6,6 +6,7 @@
         <div class="col-sm-12">
     <h2>Hub World {{ hub.id }}</h2> 
     <table class="table">
+        {% for topic in topics %}
         <thead>
             <tr>
                 <th>Topic</th>
@@ -22,11 +23,12 @@
         <tbody>
             <tr>
                 <td>{{ hub.topic }}</td>
-                <td id="id-points-for-topic-{{ hub.id }}">{{ hub.hubpoints }}</td>
+                <td id="id-points-for-topic-{{ topic.id }}">{{ topic.hubpoints }}</td>
                 <td>{{ hub.username }}</td>
                 <td>{{ hub.created_datetime }}</td>
             </tr>
         </tbody>
+        {% endfor %}
     </table>
     </div>
     </div>
