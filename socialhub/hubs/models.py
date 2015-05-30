@@ -10,7 +10,7 @@ class Hub(models.Model):
     created_datetime = models.DateTimeField()
 
     def __unicode__(self):
-        return u'%s, %s' % (self.topic, self.hubpoints)
+        return u'%s, %s,' % (self.topic, self.hubpoints)
 
     class Meta:
         ordering = ['-id']
