@@ -8,6 +8,8 @@
                 {{ hub.topic }}
                 - submitted by: 
                 {{ hub.username }}
+                - HubPoints:
+                {{ hub.hubpoints }} 
                 <a href="{% url 'hub_details' hub.id %}">Details</a>
             </li>
         {% endfor %}
