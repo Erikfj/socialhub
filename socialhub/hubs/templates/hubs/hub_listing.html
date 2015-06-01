@@ -15,6 +15,30 @@
         {% endfor %}
     </ul>
 
+    <nav>
+        <ul class="pager">
+            {% if topics.has_previous %}
+            <li class="previous">
+                <a href="?page={{ topics.previous_page_number }}">
+                    <span aria-hidden="true">&larr;</span> Previous
+                </a>
+            </li>
+            {% endif %}
+            <li>
+                <span class="current">
+                    Page {{ topics.number }} of {{ topics.paginator.num_pages }}
+                </span>
+            </li>
+            {% if topics.has_next %}
+                <li class="next">
+                    <a href="?page={{ topics.next_page_number }}">
+                        Next <span aria-hidden="true">&rarr;</span>
+                    </a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+
     <div class="row" style="margin-bottom: 500px">
         <div class="col-sm-12">
             <h3>Add new Topic</h3>
