@@ -37,7 +37,11 @@ def user_register(request):
 def user_settings(request):
 	context = {}
 	if request.method == "POST":
-		
+		user = request.user
+		user.first_name = request.POST.get("firstname")
+		user.last_name = request.POST.get("lastname")
+		user.email = request.POST.get("email")
+		user.save()
 		context['user_updated_successfully'] = True
 	return render(request, 'useraccounts/settings.html', context)
 
