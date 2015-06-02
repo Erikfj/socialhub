@@ -26,19 +26,19 @@ def hub_listing(request):
     for hub in hubs: 
     	print hub
 
-    topics = Hub.objects.all()
+    hubs = Hub.objects.all()
     page_number = request.GET.get('page')
-    pageinator = Paginator(topics, 5)
+    pageinator = Paginator(hubs, 5)
     try:
-        topics = pageinator.page(page_number)
+        hubs = pageinator.page(page_number)
     except PageNotAnInteger:
-        topics = pageinator.page(1)
+        hubs = pageinator.page(1)
     except EmptyPage:
-        topics = pageinator.page(pageinator.num_pages)
+        hubs = pageinator.page(pageinator.num_pages)
 
     context = {
         'hubs': hubs,
-        'topics': topics}
+        'hubs': hubs}
     return render(request, 'hubs/hub_listing.html', context)
 
 
