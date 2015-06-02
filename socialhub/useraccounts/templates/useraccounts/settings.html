@@ -5,10 +5,11 @@
 <p>Update your user information by typing in your info in each field and click submit.</p>
 
 {% if user_updated_successfully %}
-  <div class="alert alert-success">User successfully created!</div>
+  <div class="alert alert-success">User successfully updated!</div>
 {% endif %}
 
-<form method="POST" action="{% url 'user_settings' %}"> {% csrf_token %}
+<form method="POST" action="{% url 'user_settings' %}"> 
+{% csrf_token %}
   <div class="form-group">
     <label for="inputFirstName">First Name</label>
     <input type="text" class="form-control" name="firstname" id="inputFirstName" placeholder="Update First Name">
