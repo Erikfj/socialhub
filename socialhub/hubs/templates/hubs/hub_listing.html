@@ -17,21 +17,21 @@
 
     <nav>
         <ul class="pager">
-            {% if topics.has_previous %}
+            {% if hubs.has_previous %}
             <li class="previous">
-                <a href="?page={{ topics.previous_page_number }}">
+                <a href="?page={{ hubs.previous_page_number }}">
                     <span aria-hidden="true">&larr;</span> Previous
                 </a>
             </li>
             {% endif %}
             <li>
                 <span class="current">
-                    Page {{ topics.number }} of {{ topics.paginator.num_pages }}
+                    Page {{ hubs.number }} of {{ hubs.paginator.num_pages }}
                 </span>
             </li>
-            {% if topics.has_next %}
+            {% if hubs.has_next %}
                 <li class="next">
-                    <a href="?page={{ topics.next_page_number }}">
+                    <a href="?page={{ hubs.next_page_number }}">
                         Next <span aria-hidden="true">&rarr;</span>
                     </a>
                 </li>
